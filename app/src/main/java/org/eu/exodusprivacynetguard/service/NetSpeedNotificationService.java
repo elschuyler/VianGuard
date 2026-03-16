@@ -47,7 +47,8 @@ public class NetSpeedNotificationService extends Service {
             updateNotification();
             if (isRunning) {
                 handler.postDelayed(this, NetSpeedUtils.UPDATE_INTERVAL_MS);
-            }        }
+            }
+        }
     };
 
     // === Service State ===
@@ -96,6 +97,7 @@ public class NetSpeedNotificationService extends Service {
             }
         }
     }
+
     /**
      * Start foreground service with notification
      */
@@ -145,7 +147,8 @@ public class NetSpeedNotificationService extends Service {
 
         // Skip if TrafficStats unsupported
         if (currentRx == NetSpeedUtils.UNSUPPORTED || currentTx == NetSpeedUtils.UNSUPPORTED) {
-            return;        }
+            return;
+        }
 
         long deltaTime = now - lastTime;
         if (deltaTime <= 0) {
@@ -194,7 +197,8 @@ public class NetSpeedNotificationService extends Service {
         Intent intent = new Intent(this, ActivityMain.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(
             this, 0, intent,
-            PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT        );
+            PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT
+        );
 
         String fullText = "NetGuard Active" + speedText;
 
@@ -240,4 +244,4 @@ public class NetSpeedNotificationService extends Service {
     public IBinder onBind(Intent intent) {
         return null; // Not a bound service
     }
-}
+    }
