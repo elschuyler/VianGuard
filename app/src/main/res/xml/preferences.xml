@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- === EXISTING PREFERENCES (keep all original) === -->
+    <!-- ... existing NetGuard preferences ... -->
+
+    <!-- === NETSPEED: NEW PREFERENCES SECTION === -->
+    <PreferenceCategory
+        android:title="Network Speed Monitor"
+        android:key="netspeed_category">
+
+        <!-- Overlay Mode Toggle -->
+        <SwitchPreferenceCompat
+            android:key="netspeed_overlay_enabled"
+            android:title="Show speed in status bar"
+            android:summary="Display live ↓↑ speed as floating overlay (requires permission)"
+            android:defaultValue="false"
+            android:icon="@drawable/ic_network_speed" />
+
+        <!-- Notification Mode Toggle -->
+        <SwitchPreferenceCompat
+            android:key="netspeed_notification_enabled"
+            android:title="Show speed in notification"
+            android:summary="Display ↓↑ speed + daily total in notification shade"
+            android:defaultValue="false"
+            android:icon="@drawable/ic_notification" />
+
+        <!-- Help/Info -->
+        <Preference
+            android:key="netspeed_help"
+            android:title="About speed monitor"
+            android:summary="Tap to learn about permissions and battery impact" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
